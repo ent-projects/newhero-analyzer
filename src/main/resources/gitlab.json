@@ -1,0 +1,37 @@
+{
+	"AccessRequest": {
+		"plural": "access_requests",
+		"methods": {
+			"getResource": {
+				"url": "/projects/#project#/access_requests",
+				"desc": "Gets a list of access requests viewable by the authenticated user.",
+				"params": {
+					"project": "String"
+				}
+			},
+			"createResource": {
+				"url": "/projects/#project#/access_requests",
+				"desc": "Requests access for the authenticated user to a project.",
+				"params": {
+					"project": "String"
+				}
+			},
+			"updateResource": {
+				"url": "/projects/#project#/access_requests/#user#/approve",
+				"desc": "Approves an access request for the given user.",
+				"params": {
+					"project": "String",
+					"user": "String"
+				}
+			},
+			"deleteResource": {
+				"url": "/projects/#project#/access_requests/#user#",
+				"desc": "Denies an access request for the given user.",
+				"params": {
+					"project": "String",
+					"user": "String"
+				}
+			}
+		} 
+	}
+}
