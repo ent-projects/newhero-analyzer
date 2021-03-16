@@ -31,11 +31,9 @@ public class ProjectAnalyzer extends AbstractAnalyzer {
 	
 	static Map<String, Integer> longMapper = new LinkedHashMap<>();
 
-	static GitlabClient client = createClient();
-	
 	public static void main(String[] args) throws Exception {
-		JsonNode projNodes = projSummary(client);
-		projDetail(client, projNodes);
+		JsonNode projNodes = projSummary(gitClient);
+		projDetail(gitClient, projNodes);
 		ArrayNode json = new ObjectMapper().createArrayNode();
 		for (String key: longMapper.keySet()) {
 			ObjectNode node = new ObjectMapper().createObjectNode();

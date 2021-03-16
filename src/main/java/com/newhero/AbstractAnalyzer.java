@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.kubesys.devops.gitlab.GitlabClient;
+import com.newhero.utils.ClientUtils;
 
 
 /**
@@ -21,13 +22,7 @@ import com.github.kubesys.devops.gitlab.GitlabClient;
  */
 public class AbstractAnalyzer {
 
-	static String GITLAB_URL = "http://192.168.6.221/";
-	
-	static String GITLAB_TOKEN = "gkb_JWa4AidtsLBLVgNr";
-
-	public static GitlabClient createClient() {
-		return new GitlabClient(GITLAB_URL, GITLAB_TOKEN);
-	}
+	static GitlabClient gitClient = ClientUtils.createClient();
 	
 	protected static ObjectNode createRequest(String kind, String[] params) {
 		ObjectNode node = new ObjectMapper().createObjectNode();
@@ -37,7 +32,6 @@ public class AbstractAnalyzer {
 		}
 		return node;
 	}
-	
 	
 	protected static ArrayNode createParams(String[] params) {
 		ArrayNode node = new ObjectMapper().createArrayNode();
